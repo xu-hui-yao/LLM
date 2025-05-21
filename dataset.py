@@ -3,10 +3,6 @@ from transformers import AutoTokenizer
 import torch
 
 
-# import huggingface_hub
-# huggingface_hub.login()
-
-
 class ShakespeareDataset(torch.utils.data.Dataset):
     def __init__(self, split: str, seq_length: int):
         """
