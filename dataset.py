@@ -1,11 +1,10 @@
 import datasets
 from transformers import AutoTokenizer
-import huggingface_hub
 import torch
 
-with open('huggingface_secrets', 'r') as f:
-    hf_secrets = f.read()
-    huggingface_hub.login(token=str(hf_secrets))
+
+# import huggingface_hub
+# huggingface_hub.login()
 
 
 class ShakespeareDataset(torch.utils.data.Dataset):

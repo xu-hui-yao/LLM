@@ -4,7 +4,7 @@ output
 **/temp
 ckpt
 logs
-huggingface_secrets
+huggingface_secrets.txt
 # macOS
 .DS_Store
 .AppleDouble
