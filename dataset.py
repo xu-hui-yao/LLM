@@ -15,7 +15,7 @@ class ShakespeareDataset(torch.utils.data.Dataset):
             split: dataset split ('train', 'test', 'validation')
             seq_length: sequence length
         """
-        self.dataset = datasets.load_dataset('tiny_shakespeare', split=split)
+        self.dataset = datasets.load_dataset('tiny_shakespeare', split=split, trust_remote_code=True)
         self.text = self.dataset['text'][0]
 
         # Load tokenizer
