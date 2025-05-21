@@ -1,4 +1,26 @@
 import torch
+import huggingface_hub
+from transformers import AutoModel
+
+with open('huggingface_secrets.txt', 'r') as f:
+    hf_secrets = f.read()
+    huggingface_hub.login(token=str(hf_secrets))
+
+
+class TokenEmbedding(torch.nn.Module):
+    def __init__(self, token_number, latent_dim):
+        super().__init__()
+        model = AutoModel.from_pretrained('meta-llama/Llama-3.1-8B')
+        embedding_weight = model.get_input_embeddings().weight.data
+        self.embedding = torch.nn.Embedding.from_pretrained(embedding_weight, freeze=True)
+
+    def forward(self, tokens):
+        return self.embedding(tokens)
+
+
+if __name__ == "__main__":
+    embedding = TokenEmbedding(30000, 512)
+    print(embedding.embedding)
 
 
 class RotaryPositionalEmbedding(torch.nn.Module):
