@@ -1,0 +1,19 @@
+.idea
+output
+**/__pycache__
+**/temp
+ckpt
+logs
+huggingface_secrets
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+**/.DS_Store
+*.DS_Store
+._*
+**/.Spotlight-V100
+**/.Trashes
+**/.VolumeIcon.icns
+**/.fseventsd
+**/checkpoint/**
